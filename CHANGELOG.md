@@ -14,6 +14,8 @@ Format ini mengacu pada [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
   - **Power Profile Switcher & Estimasi Baterai:** Pengalih 3 mode daya (Power Saver, Balanced, Performance) dan kalkulasi sisa waktu baterai UPower.
   - **Hardware HUD & Desktop Notifications:** Animasi mekar 3 detik untuk volume, kecerahan layar, status charging, dan notifikasi pesan/download/sistem.
   - **Control Panel GUI (Libadwaita):** Jendela pengaturan lengkap bernuansa native Linux Mint Cinnamon.
+  - **About & Community Page:** Tab informasi open source dengan link repositori GitHub, pelaporan issues, versi FOSS, dan kredensial lisensi GPLv3.
+  - **Visual Showcase di README.md:** Dokumentasi portofolio lengkap dengan cuplikan antarmuka nyata (Expanded Control Center HUD dan Preferences Panel).
   - **StatusNotifierItem System Tray:** Ikon baki sistem di panel Cinnamon untuk kendali instan.
   - **Kepatuhan Clean Code & Standar Industri:** Konfigurasi build PEP 621 (`pyproject.toml`), suite pengujian unit otomatis (`tests/`, 12 tests passed), lisensi GPLv3, dan skrip instalasi satu perintah (`./install.sh`).
 

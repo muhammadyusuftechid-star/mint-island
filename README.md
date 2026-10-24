@@ -12,6 +12,21 @@ Designed especially for users seeking an efficient, battery-friendly, and respon
 
 ---
 
+## 📸 Screenshots & Live Showcase
+
+<p align="center">
+  <img src="assets/preview_control_center.png" alt="Mint Island Expanded Control Center HUD" width="370" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/preview_settings.png" alt="Mint Island Libadwaita Preferences Window" width="370" />
+</p>
+
+<p align="center">
+  <b>Left:</b> <i>Expanded Control Center HUD (YouTube/Spotify MPRIS, Synced Lyrics, UPower Battery, Power Profiles &amp; Bluetooth TWS)</i><br/>
+  <b>Right:</b> <i>Native Libadwaita Control Panel (Real-time modular toggles, screen selector, and animation controls)</i>
+</p>
+
+---
+
 ## ✨ Features Overview
 
 | Feature | Description |
@@ -86,6 +101,10 @@ python3 -m unittest discover tests
 
 ```text
 mint-island/
+├── assets/                     # Visual assets & showcase screenshots
+│   ├── mint-island.svg         # Official vector application icon
+│   ├── preview_control_center.png # Expanded Control Center HUD
+│   └── preview_settings.png    # Libadwaita Preferences Window
 ├── pyproject.toml              # Modern PEP 621 Python packaging specification
 ├── install.sh                  # One-line automated installer
 ├── uninstall.sh                # Complete uninstaller
@@ -100,7 +119,7 @@ mint-island/
 │   ├── config.py               # XDG JSON configuration manager
 │   ├── autostart.py            # XDG Autostart (.desktop) manager
 │   ├── i18n.py                 # Bilingual translation dictionary (ID & EN)
-│   ├── license.py              # License & Community Edition engine
+│   ├── license.py              # Community Edition engine & activation
 │   ├── ui/
 │   │   ├── island_window.py    # Main GTK4 X11 Dock Overlay
 │   │   ├── settings_window.py  # Libadwaita Preferences Window
@@ -115,8 +134,6 @@ mint-island/
 │       ├── power_module.py     # hadess power profiles switcher
 │       ├── notification_module.py # Desktop notification interceptor
 │       └── bluetooth_module.py # BlueZ Bluetooth & TWS monitor
-└── assets/
-    └── mint-island.svg         # Official vector application icon
 ```
 
 ---

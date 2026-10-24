@@ -16,6 +16,74 @@ TRANSLATIONS = {
         "id": "Pengaturan",
         "en": "Settings"
     },
+    "About &amp; Community": {
+        "id": "Tentang &amp; Komunitas",
+        "en": "About &amp; Community"
+    },
+    "Mint-Island Desktop": {
+        "id": "Mint-Island Desktop",
+        "en": "Mint-Island Desktop"
+    },
+    "Native Dynamic Island for Linux Mint (Cinnamon DE)": {
+        "id": "Dynamic Island Native untuk Linux Mint (Cinnamon DE)",
+        "en": "Native Dynamic Island for Linux Mint (Cinnamon DE)"
+    },
+    "Version": {
+        "id": "Versi",
+        "en": "Version"
+    },
+    "License": {
+        "id": "Lisensi",
+        "en": "License"
+    },
+    "Developer &amp; Maintainer": {
+        "id": "Pengembang &amp; Pembuat",
+        "en": "Developer &amp; Maintainer"
+    },
+    "Source Code &amp; Community": {
+        "id": "Kode Sumber &amp; Komunitas",
+        "en": "Source Code &amp; Community"
+    },
+    "Contribute, report bugs, or star the project on GitHub": {
+        "id": "Kontribusi, laporkan bug, atau berikan bintang di GitHub",
+        "en": "Contribute, report bugs, or star the project on GitHub"
+    },
+    "Visit GitHub": {
+        "id": "Kunjungi GitHub",
+        "en": "Visit GitHub"
+    },
+    "Report an Issue": {
+        "id": "Laporkan Masalah / Bug",
+        "en": "Report an Issue"
+    },
+    "Submit bug reports or suggest new features": {
+        "id": "Kirim laporan kendala atau usulkan fitur baru",
+        "en": "Submit bug reports or suggest new features"
+    },
+    "Open Issues": {
+        "id": "Buka GitHub Issues",
+        "en": "Open Issues"
+    },
+    "Developer &amp; Supporter Token": {
+        "id": "Token Pengembang &amp; Supporter",
+        "en": "Developer &amp; Supporter Token"
+    },
+    "Optional activation token for developers or project sponsors": {
+        "id": "Token aktivasi opsional untuk pengembang atau pendukung proyek",
+        "en": "Optional activation token for developers or project sponsors"
+    },
+    "Community Edition (Full Features Unlocked)": {
+        "id": "Edisi Komunitas (Semua Fitur Terbuka Penuh)",
+        "en": "Community Edition (Full Features Unlocked)"
+    },
+    "Activate Token": {
+        "id": "Aktifkan Token",
+        "en": "Activate Token"
+    },
+    "Reset": {
+        "id": "Reset",
+        "en": "Reset"
+    },
     "License &amp; Activation": {
         "id": "Lisensi &amp; Aktivasi",
         "en": "License &amp; Activation"

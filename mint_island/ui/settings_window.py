@@ -260,43 +260,84 @@ class SettingsWindow(Adw.PreferencesWindow):
         self.add(page_general)
 
         # ==========================================
-        # PAGE 2: Lisensi & Aktivasi (License Page)
+        # PAGE 2: About & Community (Open Source Info)
         # ==========================================
-        page_license = Adw.PreferencesPage()
-        page_license.set_title(_("License &amp; Activation"))
-        page_license.set_icon_name("emblem-default-symbolic")
+        page_about = Adw.PreferencesPage()
+        page_about.set_title(_("About &amp; Community"))
+        page_about.set_icon_name("help-about-symbolic")
 
-        # Grup 1: Status Lisensi
-        group_status = Adw.PreferencesGroup()
-        group_status.set_title(_("Pro License Status"))
+        # Grup 1: Informasi Aplikasi & Lisensi
+        group_app_info = Adw.PreferencesGroup()
+        group_app_info.set_title(_("Mint-Island Desktop"))
+        group_app_info.set_description(_("Native Dynamic Island for Linux Mint (Cinnamon DE)"))
+
+        row_version = Adw.ActionRow()
+        row_version.set_title(_("Version"))
+        row_version.set_subtitle("v1.0.0 (Community Edition - 100% Free & Open Source)")
+        group_app_info.add(row_version)
+
+        row_license = Adw.ActionRow()
+        row_license.set_title(_("License"))
+        row_license.set_subtitle("GNU General Public License v3.0 (GPLv3)")
+        group_app_info.add(row_license)
+
+        row_author = Adw.ActionRow()
+        row_author.set_title(_("Developer &amp; Maintainer"))
+        row_author.set_subtitle("Muhammad Yusuf")
+        group_app_info.add(row_author)
+
+        page_about.add(group_app_info)
+
+        # Grup 2: Komunitas & Kode Sumber (GitHub)
+        group_community = Adw.PreferencesGroup()
+        group_community.set_title(_("Source Code &amp; Community"))
+        group_community.set_description(_("Contribute, report bugs, or star the project on GitHub"))
+
+        row_github = Adw.ActionRow()
+        row_github.set_title("GitHub Repository")
+        row_github.set_subtitle("muhammadyusuftechid-star/mint-island")
+        btn_github = Gtk.Button(label=_("Visit GitHub"))
+        btn_github.set_valign(Gtk.Align.CENTER)
+        btn_github.connect("clicked", lambda b: Gio.AppInfo.launch_default_for_uri("https://github.com/muhammadyusuftechid-star/mint-island", None))
+        row_github.add_suffix(btn_github)
+        group_community.add(row_github)
+
+        row_issues = Adw.ActionRow()
+        row_issues.set_title(_("Report an Issue"))
+        row_issues.set_subtitle(_("Submit bug reports or suggest new features"))
+        btn_issues = Gtk.Button(label=_("Open Issues"))
+        btn_issues.set_valign(Gtk.Align.CENTER)
+        btn_issues.connect("clicked", lambda b: Gio.AppInfo.launch_default_for_uri("https://github.com/muhammadyusuftechid-star/mint-island/issues", None))
+        row_issues.add_suffix(btn_issues)
+        group_community.add(row_issues)
+
+        page_about.add(group_community)
+
+        # Grup 3: Developer & Supporter Token (Opsional)
+        group_activate = Adw.PreferencesGroup()
+        group_activate.set_title(_("Developer &amp; Supporter Token"))
+        group_activate.set_description(_("Optional activation token for developers or project sponsors"))
 
         self.row_edition = Adw.ActionRow()
-        self.row_edition.set_title(_("Current Edition"))
-        group_status.add(self.row_edition)
-        page_license.add(group_status)
-
-        # Grup 2: Aktivasi Kunci Lisensi
-        group_activate = Adw.PreferencesGroup()
-        group_activate.set_title(_("Product License Key"))
-        group_activate.set_description(_("Activate your license key to unlock full features"))
+        self.row_edition.set_title(_("Status"))
+        group_activate.add(self.row_edition)
 
         self.entry_key = Adw.EntryRow()
-        self.entry_key.set_title(_("Enter License Key (e.g. ISL-PRO-XXXX-YYYY-ZZZZ)"))
+        self.entry_key.set_title(_("Token / Key"))
         self.entry_key.set_show_apply_button(True)
         self.entry_key.connect("apply", lambda e: self._on_activate_clicked(None))
         group_activate.add(self.entry_key)
 
-        # Tombol Aksi
         box_actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         box_actions.set_margin_top(8)
         box_actions.set_margin_bottom(8)
 
-        self.btn_activate = Gtk.Button(label=_("Activate License"))
+        self.btn_activate = Gtk.Button(label=_("Activate Token"))
         self.btn_activate.add_css_class("suggested-action")
         self.btn_activate.connect("clicked", self._on_activate_clicked)
         box_actions.append(self.btn_activate)
 
-        self.btn_deactivate = Gtk.Button(label=_("Deactivate"))
+        self.btn_deactivate = Gtk.Button(label=_("Reset"))
         self.btn_deactivate.add_css_class("destructive-action")
         self.btn_deactivate.connect("clicked", self._on_deactivate_clicked)
         box_actions.append(self.btn_deactivate)
@@ -308,23 +349,9 @@ class SettingsWindow(Adw.PreferencesWindow):
         box_actions.append(self.lbl_license_msg)
 
         group_activate.add(box_actions)
-        page_license.add(group_activate)
+        page_about.add(group_activate)
 
-        # Grup 3: Pembelian Toko Resmi
-        group_store = Adw.PreferencesGroup()
-        group_store.set_title(_("Buy Pro License ($8.00)"))
-
-        row_store = Adw.ActionRow()
-        row_store.set_title("Lemon Squeezy / Gumroad")
-        row_store.set_subtitle(_("Get instant lifetime license key on official store"))
-        btn_store = Gtk.Button(label=_("Visit Store"))
-        btn_store.set_valign(Gtk.Align.CENTER)
-        btn_store.connect("clicked", lambda b: Gio.AppInfo.launch_default_for_uri("https://lemonsqueezy.com", None))
-        row_store.add_suffix(btn_store)
-        group_store.add(row_store)
-        page_license.add(group_store)
-
-        self.add(page_license)
+        self.add(page_about)
 
         # Update initial license view
         self._update_license_display()
@@ -334,10 +361,11 @@ class SettingsWindow(Adw.PreferencesWindow):
         info = license_manager.get_info()
         is_pro = info.get("is_pro", False)
         if is_pro:
-            self.row_edition.set_subtitle(f"{_('Pro Lifetime License (Active)')} ({info.get('masked_key')})")
+            tier_name = info.get("tier", "Community Edition")
+            self.row_edition.set_subtitle(f"{_('Community Edition (Full Features Unlocked)')} ({tier_name})")
             self.btn_deactivate.set_sensitive(True)
             self.btn_activate.set_sensitive(False)
-            self.entry_key.set_text(info.get('masked_key', ''))
+            self.entry_key.set_text(info.get('masked_key', 'FREE-FOSS-UNLOCKED'))
             self.entry_key.set_sensitive(False)
         else:
             self.row_edition.set_subtitle(_("Free Trial / Community Edition"))
