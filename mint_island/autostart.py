@@ -44,8 +44,11 @@ class AutostartManager:
         """Creates or updates the autostart .desktop entry."""
         try:
             AUTOSTART_DIR.mkdir(parents=True, exist_ok=True)
+            usr_bin = Path("/usr/bin/mint-island")
             local_bin = Path.home() / ".local" / "bin" / "mint-island"
-            if local_bin.exists() and os.access(local_bin, os.X_OK):
+            if usr_bin.exists() and os.access(usr_bin, os.X_OK):
+                exec_cmd = "/usr/bin/mint-island --daemon"
+            elif local_bin.exists() and os.access(local_bin, os.X_OK):
                 exec_cmd = f'"{local_bin}" --daemon'
             else:
                 python_exec = sys.executable

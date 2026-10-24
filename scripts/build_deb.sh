@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # Mint-Island: Native Debian (.deb) Package Builder
-# Builds both:
-#   1. mint-island_1.1.0_all.deb   : Standard lightweight package (< 60 KB)
-#   2. mint-island_1.1.0_amd64.deb : Commercial C-compiled standalone ELF binary
+# Builds:
+#   1. mint-island_1.0.0_all.deb   : Standard lightweight package (< 80 KB)
+#   2. mint-island_1.0.0_amd64.deb : Compiled standalone ELF binary (optional)
 # ==============================================================================
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$SCRIPT_DIR"
 
-VERSION="1.1.0"
+VERSION="1.0.0"
 PKG_NAME="mint-island"
 DIST_DIR="$SCRIPT_DIR/dist"
 mkdir -p "$DIST_DIR"
@@ -93,11 +93,11 @@ EOF
     cat <<EOF > "$BUILD_ROOT/usr/share/doc/$PKG_NAME/copyright"
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: mint-island
-Source: https://github.com/yusuf/mint-island
+Source: https://github.com/muhammadyusuftechid-star/mint-island
 
 Files: *
-Copyright: 2026 Yusuf
-License: Proprietary / Commercial
+Copyright: 2026 Muhammad Yusuf
+License: GPL-3.0-or-later
 EOF
 
     # Hitung Installed-Size
@@ -112,10 +112,10 @@ Section: utils
 Priority: optional
 Architecture: $ARCH
 Installed-Size: $INSTALLED_SIZE
-Maintainer: Yusuf <dev@mint-island.local>
+Maintainer: Muhammad Yusuf <https://github.com/muhammadyusuftechid-star>
 Depends: python3 (>= 3.10), python3-gi, gir1.2-gtk-4.0, gir1.2-adw-1, python3-dbus, wmctrl, x11-utils
 Recommends: playerctl, pipewire-pulse | pulseaudio-utils
-Homepage: https://github.com/yusuf/mint-island
+Homepage: https://github.com/muhammadyusuftechid-star/mint-island
 Description: Modern Native Dynamic Island for Linux Mint Cinnamon
  Mint-Island brings an elegant, lightweight Dynamic Island HUD to Linux Mint.
  Features include:
@@ -199,11 +199,13 @@ EOF
     echo "✔ Paket $ARCH selesai: $PKG_DEB ($(du -h "$PKG_DEB" | awk '{print $1}'))"
 }
 
-# 1. Bangun paket Standard (all architecture)
+# 1. Bangun paket Universal Debian (.deb) - Sangat Cepat & Kompatibel Penuh
 build_deb_package "all" "false"
 
-# 2. Bangun paket Binary ELF (amd64 architecture)
-build_deb_package "amd64" "true"
+# 2. Bangun paket Standalone Binary (amd64) jika diminta
+if [ "$1" = "--with-binary" ] || [ -f "$SCRIPT_DIR/build/bin/mint-island" ]; then
+    build_deb_package "amd64" "true"
+fi
 
 echo ""
 echo "=========================================================="

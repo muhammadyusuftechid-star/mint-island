@@ -58,9 +58,20 @@ Tested and benchmarked directly on Linux Mint 22.3 Zena:
 
 ---
 
-## 🚀 One-Line Installation
+## 🚀 Installation Options
 
-Clone this repository and run the automated installer:
+### Method 1: Graphical Installer (`.deb` Package) — ⭐ Recommended
+The easiest way to install on Linux Mint or Ubuntu without touching code:
+
+1. Download the latest installer package:  
+   👉 **[Download mint-island_1.0.0_all.deb](https://github.com/muhammadyusuftechid-star/mint-island/releases/download/v1.0.0/mint-island_1.0.0_all.deb)** *(~108 KB)*
+2. **Double-click** the downloaded `.deb` file in your file manager (Nemo) and click **"Install Package"** in GDebi.  
+   *(Or via terminal: `sudo apt install ./mint-island_1.0.0_all.deb`)*
+3. Done! Mint-Island will instantly appear in your **Application Menu**, register autostart on reboot, and can be uninstalled anytime from the Linux Mint Software Manager with one click.
+
+---
+
+### Method 2: One-Line Git Installer (For Developers)
 
 ```bash
 git clone https://github.com/muhammadyusuftechid-star/mint-island.git
@@ -69,7 +80,7 @@ cd mint-island
 ```
 
 The installer will automatically:
-1. Register `mint-island` into your system autostart (`~/.config/autostart/`).
+1. Register `mint-island` into your user autostart (`~/.config/autostart/`).
 2. Add a desktop shortcut with settings action into the **Linux Mint Application Menu**.
 3. Create the `mint-island` CLI binary in `~/.local/bin/`.
 4. Launch the island overlay immediately on your screen.
