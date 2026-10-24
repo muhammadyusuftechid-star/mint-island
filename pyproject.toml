@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mint-island"
+version = "1.0.0"
+description = "Native Dynamic Island floating HUD and Control Center for Linux Mint Cinnamon (X11)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "GPL-3.0-or-later" }
+authors = [
+    { name = "Muhammad Yusuf", email = "muhammadyusuf.tech.id@gmail.com" }
+]
+keywords = [
+    "dynamic-island",
+    "linux-mint",
+    "cinnamon",
+    "gtk4",
+    "libadwaita",
+    "mpris",
+    "lyrics",
+    "hud"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: X11 Applications :: GTK",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Desktop Environment",
+    "Topic :: Multimedia :: Sound/Audio"
+]
+dependencies = [
+    "PyGObject>=3.46.0",
+    "dbus-python>=1.3.0"
+]
+
+[project.scripts]
+mint-island = "mint_island.main:main"
+
+[project.urls]
+Homepage = "https://github.com/muhammadyusuftechid-star/mint-island"
+Repository = "https://github.com/muhammadyusuftechid-star/mint-island"
+Issues = "https://github.com/muhammadyusuftechid-star/mint-island/issues"
+
+[tool.setuptools.packages.find]
+include = ["mint_island*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

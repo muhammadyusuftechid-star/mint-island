@@ -1,0 +1,30 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+.build_venv/
+venv/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.deb
+
+# Testing & Type-checking
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# User caches & logs
+*.log
+.cache/
+

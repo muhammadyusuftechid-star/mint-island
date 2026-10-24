@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mint-Island — The Native Dynamic Island for Linux Mint Cinnamon</title>
+  <meta name="description" content="Experience the sleekest, ultra-lightweight native Dynamic Island for Linux Mint 22.3 Cinnamon. Real-time synced karaoke lyrics, hardware HUD, multi-monitor support, under 45MB RAM.">
+  <meta name="keywords" content="linux mint, dynamic island, cinnamon desktop, linux hud, spotify lyrics, youtube karaoke, gtk4, libadwaita, linux software">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mint-Island — Native Dynamic Island for Linux Mint">
+  <meta property="og:description" content="Native GTK4 Dynamic Island with synchronized YouTube/Spotify lyrics, hardware HUD, and 0% CPU idle. Built for Linux Mint Cinnamon.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.svg">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body id="top">
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      <a href="#top" class="brand" id="brand-logo">
+        <img src="assets/logo.svg" alt="Mint-Island Logo" class="brand-icon" width="36" height="36">
+        <span class="brand-text">Mint<span class="brand-highlight">Island</span></span>
+        <span class="brand-badge">v1.1</span>
+      </a>
+
+      <nav class="nav-links" id="main-nav">
+        <a href="#simulator" class="nav-item">Live Demo</a>
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#benchmark" class="nav-item">Performance</a>
+        <a href="#pricing" class="nav-item">Pricing</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#download" class="btn btn-outline btn-sm" id="btn-header-dl">Download .deb</a>
+        <a href="#pricing" class="btn btn-primary btn-sm" id="btn-header-buy">Get Pro ($8)</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <div class="pill-announcement">
+          <span class="pill-sparkle">✨</span>
+          <span>Crafted specifically for Linux Mint 22.3 Cinnamon & Ubuntu 24.04</span>
+          <span class="pill-arrow">→</span>
+        </div>
+
+        <h1 class="hero-title">
+          The <span class="gradient-text">Dynamic Island</span><br>
+          Linux Desktop Deserves.
+        </h1>
+
+        <p class="hero-subtitle">
+          A native, battery-friendly floating notch HUD with <strong>real-time synced karaoke lyrics</strong>, 
+          hardware volume/brightness sliders, and multi-monitor intelligence. 
+          Blazing fast in GTK4 & Libadwaita — under <strong>45 MB RAM</strong> and <strong>0.0% CPU idle</strong>.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#pricing" class="btn btn-primary btn-lg shadow-mint" id="btn-hero-buy">
+            <span>Buy Pro Lifetime ($8.00)</span>
+            <span class="btn-subtext">One-time payment • 3 PCs</span>
+          </a>
+          <a href="#simulator" class="btn btn-glass btn-lg" id="btn-hero-demo">
+            <span>▶ Try Interactive Demo</span>
+          </a>
+        </div>
+
+        <!-- Terminal Quick Install Widget -->
+        <div class="terminal-install-widget" id="install-widget">
+          <div class="terminal-header">
+            <span class="term-dot red"></span>
+            <span class="term-dot yellow"></span>
+            <span class="term-dot green"></span>
+            <span class="term-title">terminal — install via bash</span>
+          </div>
+          <div class="terminal-body">
+            <code id="cmd-install">curl -fsSL https://get.mintisland.app/install.sh | bash</code>
+            <button class="btn-copy" id="btn-copy-install" title="Copy to clipboard">
+              <span id="copy-icon">📋</span>
+              <span id="copy-text">Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="trust-metrics">
+          <div class="metric-item">
+            <span class="metric-val">&lt; 45 MB</span>
+            <span class="metric-label">Memory Footprint</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-val">0.0%</span>
+            <span class="metric-label">Idle CPU Drain</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-val">100%</span>
+            <span class="metric-label">Native GTK4 C/ELF</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-val">No Electron</span>
+            <span class="metric-label">Pure Linux Stack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Dynamic Island Simulator -->
+      <div class="simulator-wrapper" id="simulator">
+        <div class="mock-display">
+          <div class="mock-display-frame">
+            <div class="mock-screen">
+              
+              <!-- Mock Top Bar (Cinnamon Top / Notch Area) -->
+              <div class="screen-top-bar">
+                <span class="mock-status-text">HDMI-1 (Primary 1080p)</span>
+                <span class="mock-clock" id="mock-clock">12:45</span>
+              </div>
+
+              <!-- Interactive Dynamic Island Widget -->
+              <div class="island-container">
+                <div class="island-element state-idle" id="live-island" tabindex="0" role="button" aria-label="Interactive Dynamic Island">
+                  
+                  <!-- View 1: Compact Idle Capsule -->
+                  <div class="island-view view-idle" id="view-idle">
+                    <div class="island-dot"></div>
+                    <span class="island-clock" id="island-clock">12:45</span>
+                    <span class="island-title">Mint-Island</span>
+                    <span class="island-subtitle-mini" id="island-pill-lyric" style="display:none;">🎵 Bohemian Rhapsody</span>
+                  </div>
+
+                  <!-- View 2: Hardware HUD (Volume / Brightness / Battery) -->
+                  <div class="island-view view-hud" id="view-hud" style="display:none;">
+                    <span class="hud-icon" id="hud-icon">🔊</span>
+                    <span class="hud-title" id="hud-title">Volume</span>
+                    <div class="hud-track">
+                      <div class="hud-fill" id="hud-fill" style="width: 72%;"></div>
+                    </div>
+                    <span class="hud-value" id="hud-val">72%</span>
+                  </div>
+
+                  <!-- View 3: Expanded Music & Karaoke Card -->
+                  <div class="island-view view-expanded" id="view-expanded" style="display:none;">
+                    <div class="expanded-header">
+                      <div class="music-art-disc">
+                        <span class="disc-icon">💿</span>
+                      </div>
+                      <div class="track-details">
+                        <span class="track-name" id="track-name">Bohemian Rhapsody</span>
+                        <span class="track-artist" id="track-artist">Queen • YouTube Music (Brave)</span>
+                      </div>
+                      <div class="pro-chip">PRO 🌟</div>
+                    </div>
+
+                    <!-- Synchronized Karaoke Lyrics Viewport -->
+                    <div class="karaoke-box">
+                      <div class="lyric-line lyric-prev" id="lyric-prev">Is this the real life?</div>
+                      <div class="lyric-line lyric-curr" id="lyric-curr">Is this just fantasy? 🎤</div>
+                      <div class="lyric-line lyric-next" id="lyric-next">Caught in a landslide, no escape from reality</div>
+                    </div>
+
+                    <!-- Progress bar -->
+                    <div class="track-progress-row">
+                      <span class="time-label" id="cur-time">01:24</span>
+                      <div class="progress-bar">
+                        <div class="progress-bar-fill" id="music-progress" style="width: 28%;"></div>
+                      </div>
+                      <span class="time-label" id="tot-time">05:54</span>
+                    </div>
+
+                    <!-- Playback Controls -->
+                    <div class="player-controls">
+                      <button class="ctrl-btn" id="btn-prev" title="Previous Track">⏮</button>
+                      <button class="ctrl-btn play-pause-btn" id="btn-play" title="Play/Pause">⏸</button>
+                      <button class="ctrl-btn" id="btn-next" title="Next Track">⏭</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Desktop Wallpaper Art Inside Mock Screen -->
+              <div class="mock-desktop-canvas">
+                <div class="desktop-art-graphic">
+                  <div class="art-ring ring-1"></div>
+                  <div class="art-ring ring-2"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Trigger Toolbar -->
+        <div class="sim-toolbar" id="sim-toolbar">
+          <span class="toolbar-label">⚡ Click to trigger live animations:</span>
+          <div class="sim-btn-group">
+            <button class="sim-btn active" id="sim-btn-idle">
+              <span>Capsule Idle</span>
+            </button>
+            <button class="sim-btn" id="sim-btn-vol">
+              <span>🔊 Volume HUD</span>
+            </button>
+            <button class="sim-btn" id="sim-btn-bright">
+              <span>☀️ Brightness HUD</span>
+            </button>
+            <button class="sim-btn" id="sim-btn-battery">
+              <span>⚡ Charger Pop-up</span>
+            </button>
+            <button class="sim-btn" id="sim-btn-music">
+              <span>🎤 Music & Karaoke</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Propositions & Feature Grid -->
+    <section class="features-section" id="features">
+      <div class="section-container">
+        <div class="section-badge">BUILT DIFFERENT</div>
+        <h2 class="section-title">Designed Native for Linux Mint Cinnamon</h2>
+        <p class="section-subtitle">
+          Unlike sluggish web wrappers and Electron ports that gobble 400MB of RAM, 
+          Mint-Island runs directly on X11 with GTK4 and Libadwaita for instant 60 FPS transitions.
+        </p>
+
+        <div class="features-grid">
+          
+          <!-- Feature 1: Karaoke Lyrics -->
+          <div class="feature-card highlight-card">
+            <div class="card-glow"></div>
+            <div class="feature-icon">🎤</div>
+            <h3 class="feature-title">Real-Time Synced Karaoke Lyrics</h3>
+            <p class="feature-desc">
+              Connects seamlessly to YouTube, Spotify, and VLC via MPRIS. Automatically fetches and synchronizes lines word-by-word with LRCLIB API. Includes persistent offline caching in <code>~/.cache/mint-island/lyrics/</code>.
+            </p>
+            <div class="feature-tag">LRCLIB API • Offline Cache</div>
+          </div>
+
+          <!-- Feature 2: Hardware HUD -->
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Instant Hardware HUD Integration</h3>
+            <p class="feature-desc">
+              Bloom animations pop open for 3 seconds when adjusting volume, display brightness, or plugging in your battery charger. Listens natively via PipeWire, WirePlumber, and UPower D-Bus.
+            </p>
+            <div class="feature-tag">PipeWire • UPower • D-Bus</div>
+          </div>
+
+          <!-- Feature 3: Multi-Monitor Intelligence -->
+          <div class="feature-card">
+            <div class="feature-icon">🖥️</div>
+            <h3 class="feature-title">Dynamic Multi-Monitor Support</h3>
+            <p class="feature-desc">
+              Have an external HDMI monitor and a laptop panel? Select exactly which screen the island rests on from the Control Panel. Supports hot-plugging with automatic X11 repositioning.
+            </p>
+            <div class="feature-tag">GDK Display • Hot-Plugging</div>
+          </div>
+
+          <!-- Feature 4: Libadwaita Control Panel -->
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3 class="feature-title">Modern Control Panel GUI</h3>
+            <p class="feature-desc">
+              Configure Y-offset, HUD popup timing, module switches, and autostart on boot through a native Libadwaita preferences window with live-updating changes.
+            </p>
+            <div class="feature-tag">Libadwaita • Live Updates</div>
+          </div>
+
+          <!-- Feature 5: Native Packaging & ELF Binary -->
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3 class="feature-title">Standard .deb & Standalone ELF</h3>
+            <p class="feature-desc">
+              Distributed as a clean Debian <code>.deb</code> package with GDebi 1-click installation and menu shortcuts, or as a high-speed compiled C ELF binary via Nuitka.
+            </p>
+            <div class="feature-tag">Debian Package • Nuitka C</div>
+          </div>
+
+          <!-- Feature 6: Bilingual i18n -->
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3 class="feature-title">Bilingual i18n Localization</h3>
+            <p class="feature-desc">
+              Automatic language detection with manual switching between English (US) and Bahasa Indonesia across all notifications, menu settings, and tooltips.
+            </p>
+            <div class="feature-tag">English • Bahasa Indonesia</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Benchmark Comparison Table -->
+    <section class="benchmark-section" id="benchmark">
+      <div class="section-container">
+        <div class="section-badge">BENCHMARKS</div>
+        <h2 class="section-title">Zero Bloat. Incredible Battery Life.</h2>
+        <p class="section-subtitle">
+          See how Mint-Island compares against common alternatives and heavy Electron desktop widgets.
+        </p>
+
+        <div class="benchmark-table-wrapper">
+          <table class="benchmark-table" id="table-comparison">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th class="col-highlight">Mint-Island (Native)</th>
+                <th>Electron Alternatives</th>
+                <th>Generic Conky / Shell</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Memory Consumption (RAM)</strong></td>
+                <td class="col-highlight text-mint"><strong>~40 – 45 MB</strong></td>
+                <td class="text-danger">350 – 500 MB</td>
+                <td>30 – 80 MB</td>
+              </tr>
+              <tr>
+                <td><strong>Idle CPU Usage</strong></td>
+                <td class="col-highlight text-mint"><strong>0.0% (Zero loop)</strong></td>
+                <td class="text-danger">2.5% – 6.0%</td>
+                <td>0.8% – 1.5%</td>
+              </tr>
+              <tr>
+                <td><strong>Real-Time Karaoke Lyrics</strong></td>
+                <td class="col-highlight text-mint"><strong>✔ Built-in Synced (LRCLIB)</strong></td>
+                <td>❌ None / Static only</td>
+                <td>❌ Complex custom script</td>
+              </tr>
+              <tr>
+                <td><strong>Linux Mint Cinnamon Integration</strong></td>
+                <td class="col-highlight text-mint"><strong>✔ Native Panel & Tray</strong></td>
+                <td>❌ Generic window</td>
+                <td>⚠️ Screen overlay only</td>
+              </tr>
+              <tr>
+                <td><strong>Multi-Monitor Switching</strong></td>
+                <td class="col-highlight text-mint"><strong>✔ 1-Click GUI Selector</strong></td>
+                <td>❌ Hardcoded monitor</td>
+                <td>❌ Manual X/Y config</td>
+              </tr>
+              <tr>
+                <td><strong>Installation Experience</strong></td>
+                <td class="col-highlight text-mint"><strong>✔ 1-Click .deb / GDebi</strong></td>
+                <td>Node/npm or 150MB AppImage</td>
+                <td>Manual bash compile</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+      <div class="section-container">
+        <div class="section-badge">TRANSPARENT PRICING</div>
+        <h2 class="section-title">Invest in a Better Linux Experience</h2>
+        <p class="section-subtitle">
+          No subscriptions. No tracking. Keep your license key forever with free lifetime updates.
+        </p>
+
+        <div class="pricing-grid">
+          
+          <!-- Free / Community Tier -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="tier-title">Community Edition</h3>
+              <p class="tier-desc">Free forever for casual users and open-source fans.</p>
+              <div class="tier-price">
+                <span class="price-currency">$</span>
+                <span class="price-val">0</span>
+                <span class="price-sub">/ forever</span>
+              </div>
+            </div>
+
+            <ul class="tier-features">
+              <li>✔ Dynamic floating capsule HUD</li>
+              <li>✔ Volume & Brightness popups</li>
+              <li>✔ Battery & Charger status</li>
+              <li>✔ Single monitor support</li>
+              <li>✔ Autostart on laptop reboot</li>
+              <li class="disabled">✖ Real-time Synced Karaoke Lyrics</li>
+              <li class="disabled">✖ Multi-Monitor Live Selector</li>
+              <li class="disabled">✖ Priority support & lifetime updates</li>
+            </ul>
+
+            <a href="#download" class="btn btn-outline btn-block" id="btn-free-dl">Download Free Version</a>
+          </div>
+
+          <!-- Pro Lifetime Tier (Featured) -->
+          <div class="pricing-card featured-tier">
+            <div class="tier-badge">RECOMMENDED</div>
+            <div class="pricing-header">
+              <h3 class="tier-title">Pro Lifetime License</h3>
+              <p class="tier-desc">Full power for music lovers and power users.</p>
+              <div class="tier-price">
+                <span class="price-currency">$</span>
+                <span class="price-val">8</span>
+                <span class="price-cents">.00</span>
+                <span class="price-sub">USD (Rp 120.000)</span>
+              </div>
+            </div>
+
+            <ul class="tier-features">
+              <li>✔ <strong>Everything in Community Edition</strong></li>
+              <li>✔ <strong>Real-time Synced Karaoke Lyrics (LRCLIB)</strong></li>
+              <li>✔ <strong>Offline Lyrics Cache (~/.cache/lyrics/)</strong></li>
+              <li>✔ <strong>Dynamic Multi-Monitor Selector (HDMI + eDP)</strong></li>
+              <li>✔ <strong>Valid for up to 3 Personal Laptops / PCs</strong></li>
+              <li>✔ <strong>Free Lifetime Updates & New Features</strong></li>
+              <li>✔ <strong>Instant License Key Delivery via Email</strong></li>
+            </ul>
+
+            <button class="btn btn-primary btn-block btn-lg shadow-mint" id="btn-buy-modal" onclick="openCheckoutModal()">
+              <span>Buy Pro License ($8.00)</span>
+              <span class="btn-subtext">Lemon Squeezy / Gumroad (MoR Tax Handled)</span>
+            </button>
+            <p class="guarantee-text">🔒 14-day 100% money-back guarantee • Secure SSL checkout</p>
+          </div>
+
+        </div>
+
+        <!-- Interactive License Key Try-Out Box -->
+        <div class="license-tryout-box">
+          <div class="tryout-icon">🔑</div>
+          <div class="tryout-info">
+            <h4 class="tryout-title">Already purchased? Test your license activation simulator:</h4>
+            <p class="tryout-desc">Try inputting demo key <code>ISL-DEV-PROTEST-2026</code> to simulate how our hardware HMAC validation unlocks features.</p>
+          </div>
+          <div class="tryout-form">
+            <input type="text" id="demo-key-input" placeholder="e.g. ISL-DEV-PROTEST-2026" class="tryout-input">
+            <button class="btn btn-primary btn-sm" id="btn-validate-demo" onclick="validateDemoKey()">Verify Key</button>
+          </div>
+          <div class="tryout-result" id="tryout-result" style="display:none;"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download">
+      <div class="section-container">
+        <div class="section-badge">GET STARTED</div>
+        <h2 class="section-title">Install on Linux Mint in Seconds</h2>
+        <p class="section-subtitle">Choose your preferred installation method below.</p>
+
+        <div class="download-options">
+          
+          <div class="dl-box">
+            <div class="dl-icon">📦</div>
+            <h3 class="dl-title">Standard Debian Package (.deb)</h3>
+            <p class="dl-desc">Best for Linux Mint 21/22 and Ubuntu 22.04/24.04. Double click to install via GDebi or run <code>dpkg -i</code>.</p>
+            <div class="dl-meta">Size: ~54 KB • Architecture: All / amd64</div>
+            <a href="https://github.com/yusuf/mint-island/releases/download/v1.1.0/mint-island_1.1.0_all.deb" class="btn btn-primary btn-block" id="btn-download-deb">
+              <span>Download mint-island_1.1.0_all.deb</span>
+            </a>
+          </div>
+
+          <div class="dl-box">
+            <div class="dl-icon">⚡</div>
+            <h3 class="dl-title">One-Line Terminal Installer</h3>
+            <p class="dl-desc">Installs directly to <code>~/.local/bin/mint-island</code> with system autostart and desktop menu icons configured.</p>
+            <div class="terminal-mini">
+              <code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/yusuf/mint-island/main/install.sh)"</code>
+            </div>
+            <button class="btn btn-outline btn-block" onclick="copyTerminalCmd()">Copy Command</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="section-container">
+        <div class="section-badge">FREQUENTLY ASKED QUESTIONS</div>
+        <h2 class="section-title">Got Questions? We Have Answers.</h2>
+
+        <div class="faq-accordion">
+          
+          <details class="faq-item" open>
+            <summary class="faq-question">Will Mint-Island slow down my laptop or drain battery?</summary>
+            <div class="faq-answer">
+              <p>
+                <strong>Absolutely not.</strong> Mint-Island was specifically built for users migrating to Linux Mint seeking a lightweight, responsive system. Because it is written natively in Python with GTK4 and Libadwaita, it uses event-driven D-Bus listeners rather than polling loops. Its idle CPU usage is <strong>0.0%</strong>, and memory consumption stays at a rock-solid <strong>~45 MB RAM</strong>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Does it work with dual monitors or external HDMI displays?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes! Mint-Island has full dynamic multi-monitor support. From the Control Panel GUI, you can choose whether the island displays on your Primary HDMI monitor or your laptop's eDP screen. It repositioning happens on the fly with X11 window hints.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How does synchronized karaoke lyrics work?</summary>
+            <div class="faq-answer">
+              <p>
+                When playing music on YouTube (in Brave, Chrome, Firefox) or Spotify, Mint-Island captures track metadata via MPRIS D-Bus. It cleans video title noise (e.g., removing "[Official 4K Video]") and queries LRCLIB API for exact timestamps. Lyrics are cached locally in <code>~/.cache/mint-island/lyrics/</code> for instant offline access.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How is the license key delivered after purchasing?</summary>
+            <div class="faq-answer">
+              <p>
+                Your purchase is processed via Lemon Squeezy or Gumroad (acting as Merchant of Record). You will receive an instant email containing your personal license key (e.g., <code>ISL-PRO-XXXX-YYYY</code>) and an activation link. Enter this key into the Mint-Island Settings window or terminal to unlock Pro features forever on up to 3 PCs.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">What if I don't like it? Is there a refund policy?</summary>
+            <div class="faq-answer">
+              <p>
+                We offer a <strong>14-day no-questions-asked money-back guarantee</strong>. If Mint-Island doesn't exceed your expectations on your Linux setup, email support for an immediate full refund.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Checkout Modal Simulator -->
+  <div class="modal-backdrop" id="checkout-modal" style="display:none;" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()">✕</button>
+      <div class="modal-header">
+        <img src="assets/logo.svg" alt="Mint-Island" width="44" height="44">
+        <div>
+          <h3 class="modal-title">Mint-Island Pro Lifetime</h3>
+          <p class="modal-subtitle">Direct Checkout via Lemon Squeezy / Gumroad</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-price-box">
+          <div class="price-row">
+            <span>Product</span>
+            <span>Mint-Island Pro License (3 PCs)</span>
+          </div>
+          <div class="price-row">
+            <span>Subtotal</span>
+            <span>$8.00 USD</span>
+          </div>
+          <div class="price-row total-row">
+            <span>Total (VAT/Taxes Handled)</span>
+            <span class="total-price">$8.00</span>
+          </div>
+        </div>
+
+        <form class="modal-form" onsubmit="handleCheckoutSubmit(event)">
+          <div class="form-group">
+            <label for="buyer-email">Email Address for License Delivery</label>
+            <input type="email" id="buyer-email" placeholder="you@domain.com" required class="modal-input">
+          </div>
+          <div class="form-group">
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" class="modal-select">
+              <option value="cc">Credit / Debit Card (Visa, MasterCard)</option>
+              <option value="paypal">PayPal</option>
+              <option value="applepay">Apple Pay / Google Pay</option>
+              <option value="id_bank">Bank Transfer / QRIS (Indonesia)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg shadow-mint" id="btn-confirm-checkout">
+            <span>Complete Order & Get Instant Key</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <span>🔒 256-Bit SSL Encrypted • Lemon Squeezy Merchant of Record</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <div class="brand">
+          <img src="assets/logo.svg" alt="Logo" width="30" height="30">
+          <span class="brand-text">Mint<span class="brand-highlight">Island</span></span>
+        </div>
+        <p class="footer-about">
+          Native, lightweight Dynamic Island designed with care for Linux Mint Cinnamon and the wider Linux desktop community.
+        </p>
+        <div class="footer-copy">© 2026 Yusuf. All rights reserved.</div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="col-title">Product</h4>
+        <a href="#simulator">Live Demo</a>
+        <a href="#features">Features</a>
+        <a href="#benchmark">Benchmarks</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="col-title">Download</h4>
+        <a href="#download">Debian Package (.deb)</a>
+        <a href="#download">Installation Script</a>
+        <a href="https://github.com/yusuf/mint-island">GitHub Repository</a>
+        <a href="#pricing">License Activation</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="col-title">Support & Community</h4>
+        <a href="#faq">FAQ</a>
+        <a href="https://reddit.com/r/linuxmint">r/linuxmint</a>
+        <a href="mailto:support@mintisland.app">Contact Support</a>
+        <a href="#pricing">Lemon Squeezy Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

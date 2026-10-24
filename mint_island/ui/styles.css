@@ -1,0 +1,560 @@
+/* Mint-Island Native Modern Stylesheet */
+
+/* Island Overlay Window (Must be transparent so only capsule floats) */
+window.island-window {
+    background-color: transparent;
+    background: transparent;
+}
+
+/* Control Panel / Settings Window (Normal 100% Solid Opaque Background) */
+window.settings-window,
+preferenceswindow {
+    background-color: #242424;
+    background: #242424;
+    opacity: 1.0;
+}
+
+/* Base Island Capsule */
+.island-capsule {
+    background-color: rgba(15, 17, 23, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 4px 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.island-capsule:hover {
+    background-color: rgba(22, 25, 34, 0.98);
+    border-color: rgba(135, 189, 70, 0.45); /* Linux Mint signature green accent */
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.7), 0 0 12px rgba(135, 189, 70, 0.25);
+}
+
+/* Island Indicator Badge (Glowing Green Dot) */
+.island-badge {
+    color: #87bd46; /* Linux Mint Green */
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+/* Island Digital Clock */
+.island-clock {
+    color: #f1f3f5;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: monospace, system-ui, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Island Label Text */
+.island-title {
+    color: #ced4da;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+/* Mini Media Indicator in Micro-Pill Mode */
+.pill-micro-icon {
+    color: #87bd46;
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+/* Expanded Card Preview (When clicked in Phase 1) */
+.island-card-expanded {
+    background-color: rgba(14, 16, 22, 0.97);
+    border: 1px solid rgba(135, 189, 70, 0.35);
+    border-radius: 22px;
+    padding: 12px 18px;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.75);
+}
+
+.card-heading {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.card-subtext {
+    color: #8fa0b3;
+    font-size: 11px;
+}
+
+.status-chip {
+    background-color: rgba(135, 189, 70, 0.16);
+    color: #a6db64;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* =========================================
+   HUD (Volume, Brightness, Charging) States
+   ========================================= */
+.island-hud {
+    background-color: rgba(13, 15, 20, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    padding: 4px 14px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.25) inset;
+    transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-icon {
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.hud-label {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.hud-percent {
+    color: #ced4da;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: monospace, system-ui;
+    margin-left: 8px;
+    min-width: 32px;
+}
+
+/* Custom GTK Progress Bar for Island HUD */
+progressbar.hud-progress trough {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    min-height: 8px;
+    min-width: 90px;
+}
+
+progressbar.hud-progress progress {
+    background-color: #4dabf7; /* Default Cyan for Volume */
+    border-radius: 6px;
+    min-height: 8px;
+}
+
+/* Color Accents per Mode */
+progressbar.hud-volume progress {
+    background-color: #4dabf7; /* Cyan */
+}
+
+progressbar.hud-brightness progress {
+    background-color: #ffd43b; /* Warm Sunlight Yellow */
+}
+
+progressbar.hud-charging progress {
+    background-color: #87bd46; /* Linux Mint Green */
+}
+
+progressbar.hud-bluetooth progress {
+    background-color: #339af0; /* Bluetooth Vibrant Blue */
+}
+
+progressbar.hud-muted progress,
+progressbar.hud-danger progress {
+    background-color: #fa5252; /* Red Alert */
+}
+
+/* =========================================
+   Media Player & Karaoke Lyrics Styling
+   ========================================= */
+.media-title {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.media-artist {
+    color: #9aa2ac;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.media-time {
+    color: #6c757d;
+    font-size: 10px;
+    font-family: monospace, system-ui;
+    font-weight: 600;
+}
+
+progressbar.media-seekbar {
+    padding: 4px 0;
+}
+
+progressbar.media-seekbar trough {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 4px;
+    min-height: 6px;
+    transition: min-height 150ms ease, background-color 150ms ease;
+}
+
+progressbar.media-seekbar:hover trough {
+    background-color: rgba(255, 255, 255, 0.28);
+    min-height: 8px;
+}
+
+progressbar.media-seekbar progress {
+    background-color: #87bd46; /* Linux Mint Green */
+    border-radius: 4px;
+    min-height: 6px;
+    transition: min-height 150ms ease;
+}
+
+progressbar.media-seekbar:hover progress {
+    min-height: 8px;
+}
+
+
+/* Media Controls Buttons */
+.media-btn {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #f1f3f5;
+    border: none;
+    border-radius: 50%;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 4px;
+    font-size: 12px;
+    transition: all 180ms ease;
+}
+
+.media-btn:hover {
+    background-color: rgba(135, 189, 70, 0.25);
+    color: #ffffff;
+}
+
+.media-btn-primary {
+    background-color: #87bd46;
+    color: #121418;
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.media-btn-primary:hover {
+    background-color: #9de04f;
+    color: #000000;
+    box-shadow: 0 0 12px rgba(135, 189, 70, 0.5);
+}
+
+/* Karaoke Lyrics Styling */
+.karaoke-container {
+    background-color: rgba(10, 11, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 8px 14px;
+    margin-top: 6px;
+}
+
+.lyric-line-active {
+    color: #87bd46; /* Linux Mint Green Glow */
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.lyric-line-inactive {
+    color: rgba(200, 208, 218, 0.45);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.pill-lyric {
+    color: #87bd46;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+/* Card Close / Minimize Button */
+.card-close-btn {
+    background-color: transparent;
+    border: none;
+    color: #8fa0b3;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-height: 24px;
+    min-width: 24px;
+    transition: all 160ms ease;
+}
+
+.card-close-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Persistent Hardware Indicators in Capsule */
+.pill-hw-box {
+    margin-left: 6px;
+}
+
+.pill-hw-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #ced4da;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1px 7px;
+    margin-left: 4px;
+}
+
+.pill-bat-charging {
+    color: #a6db64;
+    background-color: rgba(135, 189, 70, 0.22);
+}
+
+.pill-bat-low {
+    color: #ff6b6b;
+    background-color: rgba(250, 82, 82, 0.22);
+}
+
+/* Quick Hardware Control Center inside Expanded Card */
+.hw-control-panel {
+    background-color: rgba(18, 21, 28, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 10px 14px;
+    margin-top: 6px;
+}
+
+.hw-row {
+    margin: 3px 0;
+}
+
+.hw-icon-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    padding: 0 4px;
+    min-width: 24px;
+    color: #ced4da;
+    border-radius: 6px;
+    transition: all 150ms ease;
+}
+
+.hw-icon-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.hw-label-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: #ced4da;
+    min-width: 65px;
+}
+
+.hw-val-text {
+    font-size: 11px;
+    font-family: monospace, system-ui;
+    font-weight: 700;
+    color: #ced4da;
+    min-width: 38px;
+}
+
+/* Custom GTK Scale Slider */
+scale.hw-slider trough {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 5px;
+    min-height: 8px;
+}
+
+scale.hw-slider highlight {
+    border-radius: 5px;
+}
+
+scale.hw-slider-volume highlight {
+    background-color: #4dabf7;
+}
+
+scale.hw-slider-brightness highlight {
+    background-color: #ffd43b;
+}
+
+scale.hw-slider slider {
+    background-color: #ffffff;
+    border-radius: 50%;
+    min-width: 14px;
+    min-height: 14px;
+    margin: -3px 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Hardware Battery Progress Bar */
+progressbar.hw-battery-bar trough {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 5px;
+    min-height: 7px;
+}
+
+progressbar.hw-battery-bar progress {
+    border-radius: 5px;
+    min-height: 7px;
+}
+
+progressbar.bat-charging progress {
+    background-color: #87bd46;
+}
+
+progressbar.bat-normal progress {
+    background-color: #4dabf7;
+}
+
+progressbar.bat-low progress {
+    background-color: #fa5252;
+}
+
+/* Quick Settings Button inside Card */
+.btn-open-settings {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #adb5bd;
+    border-radius: 10px;
+    font-size: 11px;
+    padding: 4px 10px;
+    transition: all 180ms ease;
+}
+
+.btn-open-settings:hover {
+    background-color: rgba(135, 189, 70, 0.2);
+    color: #ffffff;
+    border-color: rgba(135, 189, 70, 0.4);
+}
+
+/* Battery Estimate & Health Label */
+.card-bat-est-lbl {
+    font-size: 10px;
+    color: #9aa2ac;
+    font-family: system-ui, sans-serif;
+    margin-top: 2px;
+}
+
+/* Power Profile Selector Row */
+.power-profile-row {
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.power-profile-btn {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ced4da;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    transition: all 160ms ease;
+}
+
+.power-profile-btn:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+.power-btn-active-power-saver {
+    background-color: rgba(135, 189, 70, 0.25);
+    color: #a6db64;
+    border-color: rgba(135, 189, 70, 0.55);
+}
+
+.power-btn-active-balanced {
+    background-color: rgba(77, 171, 247, 0.25);
+    color: #74c0fc;
+    border-color: rgba(77, 171, 247, 0.55);
+}
+
+.power-btn-active-performance {
+    background-color: rgba(255, 146, 43, 0.25);
+    color: #ffa94d;
+    border-color: rgba(255, 146, 43, 0.55);
+}
+
+.pill-power-saver-badge {
+    color: #a6db64;
+    font-size: 11px;
+    margin-right: 2px;
+}
+
+/* =========================================
+   Notification State (Island Notification Pill)
+   ========================================= */
+.island-notification {
+    background-color: rgba(14, 16, 22, 0.96);
+    border: 1px solid rgba(135, 189, 70, 0.45);
+    border-radius: 20px;
+    padding: 3px 12px;
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.7), 0 0 10px rgba(135, 189, 70, 0.2) inset;
+    transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notif-icon {
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.notif-title {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.notif-body {
+    color: #ced4da;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.notif-close-btn {
+    background-color: transparent;
+    border: none;
+    color: #8fa0b3;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    transition: all 150ms ease;
+}
+
+.notif-close-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================
+   Bluetooth Device Info in Expanded Card
+   ========================================= */
+.card-bt-row {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(51, 154, 240, 0.25);
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-top: 6px;
+    transition: all 180ms ease;
+}
+
+.card-bt-icon {
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.card-bt-name {
+    color: #e9ecef;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.card-bt-bat {
+    color: #74c0fc;
+    font-size: 11px;
+    font-weight: 600;
+}
+

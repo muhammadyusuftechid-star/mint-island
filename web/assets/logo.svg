@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="islandBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181a20" />
+      <stop offset="100%" stop-color="#0a0b0e" />
+    </linearGradient>
+    <linearGradient id="mintGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a6db64" />
+      <stop offset="100%" stop-color="#87bd46" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base Disc -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#121316" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+
+  <!-- Outer Island Capsule Glow -->
+  <rect x="20" y="44" width="88" height="40" rx="20" fill="url(#islandBg)" stroke="rgba(135,189,70,0.5)" stroke-width="1.8" filter="url(#glow)" />
+
+  <!-- Inner Dynamic Island Capsule -->
+  <rect x="20" y="44" width="88" height="40" rx="20" fill="url(#islandBg)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" />
+
+  <!-- Mint Glowing Dot -->
+  <circle cx="38" cy="64" r="6" fill="url(#mintGreen)" filter="url(#glow)" />
+
+  <!-- Audio Wave / Equalizer Bars -->
+  <rect x="54" y="58" width="4" height="12" rx="2" fill="#ffffff" />
+  <rect x="63" y="52" width="4" height="24" rx="2" fill="url(#mintGreen)" />
+  <rect x="72" y="56" width="4" height="16" rx="2" fill="#ffffff" />
+  <rect x="81" y="60" width="4" height="8" rx="2" fill="#87bd46" />
+  <rect x="90" y="55" width="4" height="18" rx="2" fill="#ffffff" />
+</svg>
