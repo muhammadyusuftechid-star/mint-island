@@ -15,14 +15,11 @@ Designed especially for users seeking an efficient, battery-friendly, and respon
 ## 📸 Screenshots & Live Showcase
 
 <p align="center">
-  <img src="assets/preview_control_center.png" alt="Mint Island Expanded Control Center HUD" width="370" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/preview_settings.png" alt="Mint Island Libadwaita Preferences Window" width="370" />
+  <img src="assets/preview_control_center.png" alt="Mint Island Expanded Control Center HUD" width="400" />
 </p>
 
 <p align="center">
-  <b>Left:</b> <i>Expanded Control Center HUD (YouTube/Spotify MPRIS, Synced Lyrics, UPower Battery, Power Profiles &amp; Bluetooth TWS)</i><br/>
-  <b>Right:</b> <i>Native Libadwaita Control Panel (Real-time modular toggles, screen selector, and animation controls)</i>
+  <i>Expanded Control Center HUD (YouTube/Spotify MPRIS, Synced Karaoke Lyrics, UPower Battery, Power Profile Switcher &amp; Bluetooth TWS)</i>
 </p>
 
 ---
@@ -114,8 +111,7 @@ python3 -m unittest discover tests
 mint-island/
 ├── assets/                     # Visual assets & showcase screenshots
 │   ├── mint-island.svg         # Official vector application icon
-│   ├── preview_control_center.png # Expanded Control Center HUD
-│   └── preview_settings.png    # Libadwaita Preferences Window
+│   └── preview_control_center.png # Expanded Control Center HUD
 ├── pyproject.toml              # Modern PEP 621 Python packaging specification
 ├── install.sh                  # One-line automated installer
 ├── uninstall.sh                # Complete uninstaller
