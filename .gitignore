@@ -28,3 +28,10 @@ htmlcov/
 *.log
 .cache/
 
+# Internal developer notes & private planning
+PANDUAN_SETUP_TOKO_ONLINE.md
+RENCANA_RILIS_KOMERSIAL.md
+KOMUNITAS_DAN_PROMOSI.md
+RANCANGAN_DYNAMIC_ISLAND_LINUX_MINT.md
+AGENTS.md
+.agents/
