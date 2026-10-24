@@ -12,6 +12,16 @@ Designed especially for users seeking an efficient, battery-friendly, and respon
 
 ---
 
+<p align="center">
+  <img src="assets/preview_control_center.png" alt="Mint Island Expanded Control Center HUD" width="380" />
+</p>
+
+<p align="center">
+  <em>Expanded Control Center HUD — Live MPRIS Media Player, Synced Lyrics, UPower Battery Health, Power Profile Switcher &amp; Bluetooth Device Battery</em>
+</p>
+
+---
+
 ## ✨ Features Overview
 
 | Feature | Description |
@@ -97,8 +107,9 @@ python3 -m unittest discover tests
 
 ```text
 mint-island/
-├── assets/                     # Visual assets & vector icons
-│   └── mint-island.svg         # Official vector application icon
+├── assets/                     # Visual assets & showcase preview
+│   ├── mint-island.svg         # Official vector application icon
+│   └── preview_control_center.png # Expanded Control Center HUD
 ├── pyproject.toml              # Modern PEP 621 Python packaging specification
 ├── install.sh                  # One-line automated installer
 ├── uninstall.sh                # Complete uninstaller
